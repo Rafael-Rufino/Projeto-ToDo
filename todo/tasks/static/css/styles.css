@@ -1,3 +1,8 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .container-fluid{
     padding: 0;
 
@@ -33,9 +38,6 @@
     border-radius: 5px;
     margin-right: 25px;
     
-
-
-
 }
 
 .fas.fa-plus{
@@ -47,9 +49,10 @@
 
 .fas.fa-search{
    position: absolute;
-   right:210px;
+   top:12px;
+   right: 26px;
    text-align: center;
-   margin-top:-26px;
+   
  
 }
 
