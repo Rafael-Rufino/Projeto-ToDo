@@ -121,7 +121,7 @@ footer p{
     position: relative;
 }
 
-/* Messages*/
+/* Messagegem*/
 
 ul.messages{
     padding:0;
@@ -134,6 +134,26 @@ ul.messages li{
 }
 
 .alert-info {
-    color: red;
-    background-color: darksalmon;
+    color: black;
+    background-color: rgb(159, 192, 214);
+}
+
+/*Paginação*/
+
+
+.pagination{
+    margin-bottom:20px;
+    
+}
+/*centralizar icones*/
+.step-links{
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-links .current{
+    margin-left: 5px;
+    margin-right: 5px;
+
 }

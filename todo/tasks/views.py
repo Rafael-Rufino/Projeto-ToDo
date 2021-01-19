@@ -1,7 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+### importe para validar o formulario
 from .forms import TaskForm
+
+## importe para adcionar uma mensagem de faadback ao usuario
 from django.contrib import messages
+#importe para paginação, dividir as informação por cada pagina
+from django.core.paginator import Paginator
 
 
 from .models import Task
@@ -9,7 +14,13 @@ from .models import Task
 
 ####### Mostra a pagina principal com a Lista de Tarefas
 def taskList(request):
-    tasks = Task.objects.all().order_by('-create_at')
+    tasks_list = Task.objects.all().order_by('-create_at')
+## função criada para decidir quantas paginas seram visiveis na pagina principal
+    paginator = Paginator(tasks_list, 3) #definir tarefa por pagina 
+    page = request.GET.get('page')
+    
+    tasks = paginator.get_page(page)
+
     return render(request, 'tasks/list.html', {'tasks': tasks})
 
 
@@ -28,6 +39,8 @@ def newTask(request):
             task = form.save(commit=False)
             task.done = 'Inserido'
             task.save()
+            #### retorna uma menssagem para o usuario
+            messages.info(request, 'Criando uma nova Tarefa!')
             return redirect('/')
 
     form = TaskForm()
@@ -52,7 +65,8 @@ def editTask(request, id):
             task.save()
     
                     
-
+            #### retorna uma menssagem para o usuario
+            messages.info(request, 'A tarefa foi Editanda!')
             return redirect('/')
   
         else:
