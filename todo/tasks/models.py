@@ -6,7 +6,7 @@ class Task(models.Model):
 
 
     STATUS =(
-        ('Realizando', 'Fazendo'),
+        ('Inserido', 'Inserido'),
         ('Pendente', 'Pendente'),
         ('Concluido', 'Concluida'),
     )
