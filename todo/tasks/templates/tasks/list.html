@@ -16,15 +16,38 @@
             <i class="fas fa-search"></i>
         </div>
 
+        <!-- Menssagem informando que tarefa foi deleta da aplicação-->
+
+        {% if messages %}
+
+            <ul class = "messages">
+
+                {% for message in messages %}
+
+                    <li {% if message.tags %} Class = "alert alert-{{message.tags}}" {% endif %}>{{message}} </li>
+
+                {%  endfor %}
+
+            </ul>
+
+
+        {% endif %}
+
+
+
+
         <!-- Tarafa -->
         <ul class="task-list">
             {% for task in tasks %}
             <li class="task-item">
                 <span><a href="/task/{{task.id}}">{{task.title}}</a></span>
-                <span> <i class="fas fa-trash"></i></span>
                 <!--Botão editar-->
                 <a href="edit/{{task.id}}">
                     <span> <i class="fas fa-edit"></i></span>
+                </a>
+                <!--Botão deletar-->
+                <a href="delete/{{task.id}}">
+                    <span> <i class="fas fa-trash"></i></span>
                 </a>
             </li>
             {% endfor %}
