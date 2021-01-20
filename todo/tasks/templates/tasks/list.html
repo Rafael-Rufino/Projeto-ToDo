@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 
+
+
 {% block title %} Listar de tarefas {% endblock %}
 
 {% block content %}
@@ -12,8 +14,10 @@
             </div>
         </a>
         <div class="col-9 search-div">
-            <input  class="form-control"  type="text" id="search" name="search"  placeholder="Digite o nome da tarefa para buscar"/>
-            <i class="fas fa-search"></i>
+            <form method="GET" id = "search-form">
+                <input  class="form-control"  type="text" id="search" name="search"  placeholder="Digite o nome da tarefa para buscar" value="{{request.GET.search}}"/>
+                <i class="fas fa-search" id = "search-btn"></i>
+            </form>
         </div>
 
         <!-- Menssagem informando que tarefa foi deleta da aplicação-->
@@ -60,10 +64,15 @@
                     <a href="?page={{tasks.previous_page_number}}"><i class = "fas fa-arrow-left"></i></a>
                 {% endif %}
 
-                <!--Mostrar em qual pagina esta na lista -->
-                <span class="current">
-                    {{ tasks.number}} de {{tasks.paginator.num_pages}} <!-- 1 de 3-->
-                </span>
+                {% if tasks.paginator.num_pages%}
+                
+                    <!--Mostrar em qual pagina esta na lista -->
+                    <span class="current">
+                        {{ tasks.number}} de {{tasks.paginator.num_pages}} <!-- 1 de 3-->
+                    </span>
+
+                {% endif %}
+
 
                 <!--Criando um IF pra verificar qual pagina esta a manda pra proxima-->
                 {% if tasks.has_next %}

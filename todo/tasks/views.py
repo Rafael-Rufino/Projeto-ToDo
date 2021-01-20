@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 ### importe para validar o formulario
 from .forms import TaskForm
@@ -13,18 +14,31 @@ from .models import Task
 # Create your views here.
 
 ####### Mostra a pagina principal com a Lista de Tarefas
+@login_required
 def taskList(request):
-    tasks_list = Task.objects.all().order_by('-create_at')
-## função criada para decidir quantas paginas seram visiveis na pagina principal
-    paginator = Paginator(tasks_list, 3) #definir tarefa por pagina 
-    page = request.GET.get('page')
+     ### criar a função de pesquisa Search
+    search = request.GET.get('search')
+
+    if search:
+        #realizando o filtro pela aplicação com case -sensitive
+        tasks = Task.objects.filter(title__icontains=search) 
     
-    tasks = paginator.get_page(page)
+
+    else:
+            
+        tasks_list = Task.objects.all().order_by('-create_at')
+    ## função criada para decidir quantas paginas seram visiveis na pagina principal
+        paginator = Paginator(tasks_list, 3) #definir tarefa por pagina 
+        page = request.GET.get('page')
+        
+        tasks = paginator.get_page(page)
 
     return render(request, 'tasks/list.html', {'tasks': tasks})
+   
 
 
 ##### Exibi Tarefas 
+@login_required
 def taskView(request, id):
     task = get_object_or_404(Task, pk=id)
     return render(request, 'tasks/task.html', {'task':task})
@@ -48,7 +62,7 @@ def newTask(request):
 
 
 ### editar a tarefa
-
+@login_required
 def editTask(request, id):
     task = get_object_or_404(Task, pk =id)
     
@@ -79,7 +93,7 @@ def editTask(request, id):
 
 
 ##### criando a função de deletar uma tarefa
-
+@login_required
 def deleteTask(request, id):
     task = get_object_or_404(Task, pk=id)
     task.delete()

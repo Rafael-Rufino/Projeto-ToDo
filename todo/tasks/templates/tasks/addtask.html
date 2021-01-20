@@ -1,4 +1,7 @@
+
 {% extends 'base.html'%}
+
+{% load crispy_forms_tags %}
 
 
 {% block title %}Adicione um Tarefa {% endblock %}
@@ -14,8 +17,9 @@
 
     <form method="POST">
         {% csrf_token%}
-        {{ form.as_p}}
-        <input type = "submit" class = "btn btn-success" value ="Criar um Tarefa" >
+        <!--adicionando a função do formulario crispy-->
+        {{ form|crispy}}
+        <input type = "submit" class = "btn btn-success" value ="Criar Tarefa" >
 
     </form>
 

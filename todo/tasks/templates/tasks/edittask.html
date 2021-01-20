@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load crispy_forms_tags %}
 
 
 {% block title %}Editando: '{{task.title}}'  {% endblock %}
@@ -14,7 +15,8 @@
 
     <form method="POST">
         {% csrf_token%}
-        {{ form.as_p}}
+        <!--Adicionando função do formulario chamada de crispy-->
+        {{ form|crispy}}
         <input type = "submit" class = "btn btn-success" value ="Editar Tarefa" >
 
     </form>

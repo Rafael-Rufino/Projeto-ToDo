@@ -57,6 +57,7 @@
    top:12px;
    right: 26px;
    text-align: center;
+   cursor: pointer;
    
  
 }
@@ -120,6 +121,11 @@ footer p{
     top:50%;
     position: relative;
 }
+/* criar tarefa */
+.btn-success{
+    margin-bottom:20px;
+}
+
 
 /* Messagegem*/
 
@@ -157,3 +163,11 @@ ul.messages li{
     margin-right: 5px;
 
 }
+
+
+/*LOGIN*/
+
+.auth-card{
+    margin-bottom:30px;
+}
+
