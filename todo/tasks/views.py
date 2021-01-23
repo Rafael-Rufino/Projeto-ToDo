@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+##importei o login required
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 ### importe para validar o formulario
@@ -21,12 +22,12 @@ def taskList(request):
 
     if search:
         #realizando o filtro pela aplicação com case -sensitive
-        tasks = Task.objects.filter(title__icontains=search) 
+        tasks = Task.objects.filter(title__icontains=search, user = request.user) 
     
 
     else:
             
-        tasks_list = Task.objects.all().order_by('-create_at')
+        tasks_list = Task.objects.all().order_by('-create_at').filter(user = request.user)
     ## função criada para decidir quantas paginas seram visiveis na pagina principal
         paginator = Paginator(tasks_list, 3) #definir tarefa por pagina 
         page = request.GET.get('page')
@@ -51,7 +52,9 @@ def newTask(request):
         ## verificando os dados são validos
         if form.is_valid():
             task = form.save(commit=False)
+
             task.done = 'Inserido'
+            task.user = request.user
             task.save()
             #### retorna uma menssagem para o usuario
             messages.info(request, 'Criando uma nova Tarefa!')
