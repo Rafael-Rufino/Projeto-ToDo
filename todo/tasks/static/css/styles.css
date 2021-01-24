@@ -94,13 +94,22 @@
     padding-top:10px;
     border-bottom:1px dashed #ccc;
 }
+/*status*/
+.task-item.done{
+    background-color: #CCC;
+}
+
 /* iditando icones em tarefas*/
-.fas.fa-trash, .fas.fa-edit{
+.fas.fa-trash,
+.fas.fa-edit,
+.fas.fa-check{
     cursor: pointer;
     margin: 5px;
     font-size:20px;
     float:right;
 }
+
+
 
 
 .fas.fa-trash{
@@ -110,6 +119,16 @@
 .fas.fa-edit{
     color:#13c43f;
 }
+.fas.fa-check{
+    color: #CCC;
+
+}
+
+.done .fas.fa-check{
+    color: #3476e2;
+}
+
+
 /* Rodapé*/
 footer{
     background-color: #333;

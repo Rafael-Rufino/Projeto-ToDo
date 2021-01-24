@@ -7,9 +7,8 @@ class Task(models.Model):
 
 
     STATUS =(
-        ('Inserido', 'Inserido'),
-        ('Pendente', 'Pendente'),
-        ('Concluido', 'Concluida'),
+        ('done', 'done'),
+        ('doing', 'doing'),
     )
     title = models.CharField(max_length = 255)
     description = models.TextField()
