@@ -1,9 +1,12 @@
 // criando uma função em jquery para monstar uma alerta ao usuairo antes de apapar a tarefa
 
 $(document).ready(function(){
+    var baseUrl =  'http://127.0.0.1:8000/';
     var deleteBtn = $('.delete-btn');
     var searchBtn = $('#search-btn');
     var searchForm = $('#search-form');
+
+    var filter = $('#filter');
 
 
     $(deleteBtn).on('click', function(e){
@@ -19,6 +22,14 @@ $(document).ready(function(){
 
     $(searchBtn).on('click', function(){
         searchForm.submit();
+    });
+
+    // logica do filter status tarefa
+    $(filter).change(function(){
+
+        var filter = $(this).val();
+        window.location.href = baseUrl + '?filter='+filter;
+        
     });
 
 });

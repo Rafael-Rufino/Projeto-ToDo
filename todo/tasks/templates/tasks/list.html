@@ -6,20 +6,51 @@
 {% block title %} Listar de tarefas {% endblock %}
 
 {% block content %}
+<!--Botao adicionar tarefa-->
     <div class="offset-1 col-10 list-div">
         <h1>Lista de Tarefas</h1>
+<!--atualizar o numero de tarefas-->
+        <div class="container dashboard">
+            <div class="col-4 dashboard-box" id = "dashboard-lastdays">
+                <h4>Finalizando nos últimos 30 dias</h4>
+                <span>{{tasksrecently}}</span>
+            </div>
+
+            <div class="col-4 dashboard-box" id = "dashboard-done">
+                <h4>Tarefas Finalizadas </h4>
+                <span>{{tasksdone}}</span>
+            </div>
+
+            <div class="col-4 dashboard-box" id = "dashboard-doing">
+                <h4>Tarefas para fazer</h4>
+                <span>{{tasksdoing}}</span>
+            </div>
+        </div>
+
+        
+
         <a id="add-link" href="newtask/">
             <div class="col-2 add-div">
                 <i class="fas fa-plus"></i> Adiciona tarefas
             </div>
         </a>
+        <!--Search-->
         <div class="col-9 search-div">
             <form method="GET" id = "search-form">
                 <input  class="form-control"  type="text" id="search" name="search"  placeholder="Digite o nome da tarefa para buscar" value="{{request.GET.search}}"/>
                 <i class="fas fa-search" id = "search-btn"></i>
             </form>
         </div>
+        <!--filtro de status da tarefa-->
+        <div class="col-12 filter-div">
+            <span>Filtrar por: </span>
+            <select name="filter" id="filter" class="form-control">
+                <option value="">Escolha um opção</option>
+                <option value="done">Tarefas concluidas</option>
+                <option value="doing">Tarefas a fazer</option>
+            </select>
 
+        </div>
         <!-- Menssagem informando que tarefa foi deleta da aplicação-->
 
         {% if messages %}
@@ -33,7 +64,6 @@
                 {%  endfor %}
 
             </ul>
-
 
         {% endif %}
 
