@@ -1,6 +1,6 @@
 
 
-<h3 align="center" style= "font-size:18px";>
+<h3 align="center" style= "font-size:24px; color: green;" >
     <b style = "color: green";>ToDo</b>
     <br><br>
     <b> Plataforma para gerenciamento de Tarefas Pessoais!</b>  
