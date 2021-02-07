@@ -1,10 +1,9 @@
-##  ToDo - Sistema de tarefas Desenvolvido no curso ministrado por Matheus Battisti.
 
 
 <h3 align="center">
-    <h1 style = "color: green"; >ToDo</h1>
+    <b style = "color: green";>ToDo</b>
     <br><br>
-    <b> Plataforma para gerenciar Tarefas Pessoais!</b>  
+    <b> Plataforma para gerenciamento de Tarefas Pessoais!</b>  
     <br>
 </h3>
 
@@ -26,7 +25,7 @@
 	
 O <strong>ToDo</strong> é uma aplicação Web voltada para ajudar pessoas no gerenciamento de tarefas pessoais.
 
-Essa aplicação foi construída na trilha <strong>Matheu Battisti</strong> no <strong>Youtube</strong> distribuída no canal [HoraDeCodar](https://www.youtube.com/watch?v=93sDfZn89nM&list=PLnDvRpP8BnewqnMzRnBT5LeTpld5bMvsj&index=20&ab_channel=MatheusBattisti-HoradeCodar). A ideia de criar uma aplicação voltada para o gerenciamento de tarefas surgiu da necessidades que muitos DEV tem pra entregar seus projetos no prazos.
+Essa aplicação foi construída na trilha de <strong>Matheu Battisti</strong> no <strong>Youtube</strong> distribuída no canal [HoraDeCodar](https://www.youtube.com/watch?v=93sDfZn89nM&list=PLnDvRpP8BnewqnMzRnBT5LeTpld5bMvsj&index=20&ab_channel=MatheusBattisti-HoradeCodar). A ideia de criar uma aplicação voltada para o gerenciamento de tarefas surgiu da necessidades que muitos DEV ter muitos projetos pra entregar no prazos, essa agenda auxilia nas entregas e no que deve ser feito, funciona como um controle e gerenciamento do tempo.
 <a id="documentacao"></a>
 
 ## :books: Documentação
